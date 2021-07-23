@@ -1,0 +1,15 @@
+{
+  "status": 0,
+  "message": [{
+    "id": 1,
+    "img": "../../static/Swipe/mv1.png",
+    "title":"3c"
+  },{
+    "id": 2,
+    "img": "../../static/Swipe/mv1.png"
+  },{
+    "id": 3,
+    "img": "../../static/Swipe/mv1.png"
+  }
+  ]
+}
