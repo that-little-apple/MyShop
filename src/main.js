@@ -6,22 +6,33 @@ import router from './router'
 import Axios from 'axios'
 //引入并使用mintUI
 import Mint from 'mint-ui';
-Vue.use(Mint);
 //引入mintUI使用的css
 import 'mint-ui/lib/style.css'
 
-//将axios挂到vue对象上.prototype(原型)，扩展vue属性，方便获取
-Vue.prototype.$axios=Axios
-// url前缀,与api.js中的api路径拼接得到完整地址http://localhost:8080/api/getSwape
-Axios.defaults.baseURL="http://localhost:8080/api"
+Vue.use(Mint);
 
+//将axios挂到vue对象上.prototype(原型)，扩展vue属性，方便获取
+Vue.prototype.$axios = Axios
+// url前缀,与api.js中的api路径拼接得到完整地址http://localhost:8080/api/getSwape
+Axios.defaults.baseURL = "http://localhost:8080/api"
+
+//定义过滤器，对商品的名称进行超长截取
+//str要过滤的数据，ProductList.vue模版中product.title
+//num：过滤的长度为10
+Vue.filter('showTitle', function (str, num) {
+  if (str.length < num){
+    return str
+  }else{
+    return str.substr(0, num) + '...'
+  }
+})
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {App},
   template: '<App/>'
 })
 // https://www.cnblogs.com/ggjun/p/11037914.html

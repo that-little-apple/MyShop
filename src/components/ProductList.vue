@@ -4,7 +4,7 @@
       <li v-for="product in productList" :key="product.id">
         <a href="#"></a>
         <img :src="product.img_url">
-        <div class="title">{{product.title}}</div>
+        <div class="title">{{product.title|showTitle(10)}}</div>
         <div class="desc">
           <div class="sell">
             <span>￥{{product.sell_price}}</span>
