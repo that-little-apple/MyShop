@@ -1,21 +1,21 @@
 template只能有一个根节点
 <template>
   <div>
-    <mt-swipe :auto="4000" style="height: 375px">
-      <mt-swipe-item>1</mt-swipe-item>
-      <mt-swipe-item>2</mt-swipe-item>
-      <mt-swipe-item>3</mt-swipe-item>
+    <mt-swipe :auto="4000" style="height: 165px;width: 400px">
+      <mt-swipe-item v-for="item in imgList" :key="item.id">
+        <img :src="item.img">
+      </mt-swipe-item>
     </mt-swipe>
-  <div class="list">
-    <ul>
-      <li v-for="info in newList" :key="info.id">
-        <a href="#">
-          <img :src="info.src">
-          <p>{{info.title}}</p>
-        </a>
-      </li>
-    </ul>
-  </div>
+    <div class="list">
+      <ul>
+        <li v-for="info in newList" :key="info.id">
+          <a href="#">
+            <img :src="info.src">
+            <p>{{info.title}}</p>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -40,13 +40,15 @@ template只能有一个根节点
     name: "home",
     data() {
       return {
-        newList: infoList
+        newList: infoList,
+        imgList: []
       }
     },
     created() {
       // url前缀,与api.js中的api路径拼接得到完整地址http://localhost:8080/api/getSwipe
-      this.$axios.get('/getSwipe').then(res=>{
+      this.$axios.get('/getSwipe').then(res => {
         console.log(res)
+          this.imgList= res.data.message
       })
     }
   }
@@ -62,17 +64,19 @@ template只能有一个根节点
     float: left;
     width: 33%;
     height: 100px;
-    text-align:center;
+    text-align: center;
     font-size: 14px;
   }
-  .list ul li{
+
+  .list ul li {
     display: inline-block;
     width: 70px;
     height: 50px;
     margin: 0 auto;
     text-decoration: none;
   }
-  .list ul li a img{
+
+  .list ul li a img {
     width: 50px;
   }
 </style>

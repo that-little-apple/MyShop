@@ -2,14 +2,13 @@
   "status": 0,
   "message": [{
     "id": 1,
-    "img": "../../static/Swipe/mv1.png",
-    "title":"3c"
+    "img": "../../static/Swipe/mv1.png"
   },{
     "id": 2,
-    "img": "../../static/Swipe/mv1.png"
+    "img": "../../static/Swipe/mv2.png"
   },{
     "id": 3,
-    "img": "../../static/Swipe/mv1.png"
+    "img": "../../static/Swipe/mv3.png"
   }
   ]
 }
