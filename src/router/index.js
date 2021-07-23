@@ -5,6 +5,8 @@ import Home from '@/components/Home'
 import Order from '@/components/Order'
 import Shopcart from '@/components/Shopcart'
 import Mine from '@/components/Mine'
+import ProductList from '@/components/ProductList'
+
 
 
 // 如果使用模块化机制编程，导入Vue和VueRouter，要调用 Vue.use(VueRouter)
@@ -31,6 +33,11 @@ export default new Router({
       path: '/mine',
       name: 'Mine',
       component: Mine
+    },
+    {
+      path: '/ProductList',
+      name: 'ProductList',
+      component: ProductList
     }
 
   ]

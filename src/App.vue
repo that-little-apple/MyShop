@@ -56,7 +56,9 @@
     }
   }
 </script>
-
-<style>
-
+scoped代表此样式仅在当前app页面起作用
+<style scoped>
+.mint-tabbar{
+  position: fixed;
+}
 </style>

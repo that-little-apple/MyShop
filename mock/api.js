@@ -12,7 +12,9 @@ function fromJsonFile(fileName) {
 
 const proxy = {
   //定义mock接口，接收前端请求,接收到调用方法获取数据返回
-  'GET /api/getSwipe': fromJsonFile('Swipe')
+  'GET /api/getSwipe': fromJsonFile('Swipe'),
+  'GET /api/getProductList': fromJsonFile('GoodProductList')
+
 }
 //必须导出，不然home.vue中使用this.$axios.get('/getSwipe)将访问不到
 module.exports = proxy

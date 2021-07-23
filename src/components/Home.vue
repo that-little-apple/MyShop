@@ -9,10 +9,14 @@ template只能有一个根节点
     <div class="list">
       <ul>
         <li v-for="info in newList" :key="info.id">
-          <a href="#">
-            <img :src="info.src">
-            <p>{{info.title}}</p>
-          </a>
+          <!--          <a href="#">-->
+          <!--          https://router.vuejs.org/zh/api/-->
+          <!--          表示目标路由的链接。当被点击后，内部会立刻把 to 的值传到 router.push()，所以这个值可以是一个字符串或者是描述目标位置的对象。-->
+          <router-link :to=info.route>
+          <img :src="info.src">
+          <p>{{info.title}}</p>
+          </router-link>
+          <!--          </a>-->
         </li>
       </ul>
     </div>
@@ -25,15 +29,12 @@ template只能有一个根节点
   import img3 from '@/assets/京东到家.png'
   import img4 from '@/assets/服饰.png'
   import img5 from '@/assets/生鲜.png'
-  import img6 from '@/assets/超市.png'
-
   var infoList = [
-    {id: 1, src: img1, title: "3C家电"},
-    {id: 2, src: img2, title: "plus会员"},
-    {id: 3, src: img3, title: "京东到家"},
-    {id: 4, src: img4, title: "服饰"},
-    {id: 5, src: img5, title: "生鲜"},
-    {id: 6, src: img6, title: "超市"},
+    {id: 1, src: img1, title: "新闻资讯", route: {name: 'NewList'}},
+    {id: 2, src: img2, title: "图片分享", route: {name: 'PhotoList'}},
+    {id: 3, src: img3, title: "商品展示", route: {name: 'ProductList'}},
+    {id: 4, src: img4, title: "国际新闻", route: {name: 'News'}},
+    {id: 5, src: img5, title: "留言反馈", route: {name: 'ShowMsg'}},
   ]
 
   export default {
@@ -48,7 +49,7 @@ template只能有一个根节点
       // url前缀,与api.js中的api路径拼接得到完整地址http://localhost:8080/api/getSwipe
       this.$axios.get('/getSwipe').then(res => {
         console.log(res)
-          this.imgList= res.data.message
+        this.imgList = res.data.message
       })
     }
   }
