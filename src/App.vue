@@ -18,7 +18,7 @@
         <img slot="icon" src="./assets/商品.png">
         订单
       </mt-tab-item>
-      <mt-tab-item id="ShopCart">
+      <mt-tab-item id="Shopcart">
         <img slot="icon" src="./assets/购物车.png">
         购物车
       </mt-tab-item>
@@ -49,6 +49,9 @@
         console.log("newCompent", newCompent)
         console.log("oldComment", oldComment)
         console.log(this.selected)//返回的是组件当中id组件的值
+        //去执行对应的路由，找到对应的页面并展示
+        //https://router.vuejs.org/zh/guide/essentials/navigation.html
+        this.$router.push({name:this.selected})
       }
     }
   }
