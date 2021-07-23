@@ -6,6 +6,8 @@ import Order from '@/components/Order'
 import Shopcart from '@/components/Shopcart'
 import Mine from '@/components/Mine'
 import ProductList from '@/components/ProductList'
+import ProductDetail from '@/components/ProductDetail'
+
 
 
 
@@ -38,6 +40,11 @@ export default new Router({
       path: '/ProductList',
       name: 'ProductList',
       component: ProductList
+    },
+    {
+      path: '/ProductDetail',
+      name: 'ProductDetail',
+      component: ProductDetail
     }
 
   ]

@@ -2,7 +2,8 @@
   <div>
     <ul>
       <li v-for="product in productList" :key="product.id">
-        <a href="#"></a>
+<!--        路由跳转时带参数skuid，展示具体商品的详情页,skuid传递给了组件ProductDetail-->
+        <router-link :to="{name:'ProductDetail',params:{skuId:product.id}}">
         <img :src="product.img_url">
         <div class="title">{{product.title|showTitle(10)}}</div>
         <div class="desc">
@@ -21,6 +22,7 @@
           </div>
 
         </div>
+        </router-link>
       </li>
     </ul>
     <p>&nbsp;</p>
